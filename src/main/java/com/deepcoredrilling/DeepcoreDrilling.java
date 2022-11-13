@@ -1,5 +1,6 @@
 package com.deepcoredrilling;
 
+import com.deepcoredrilling.blocks.simpleblocks.DeepcoreSimpleBlocksInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
 @Mod("deepcore-drilling")
 public class DeepcoreDrilling {
 
+    public static final String MOD_ID = "deepcore-drilling";
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -37,6 +39,9 @@ public class DeepcoreDrilling {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+        DeepcoreSimpleBlocksInit.RegisterSimpleBlocks();
+        DeepcoreSimpleBlocksInit.RegisterSimpleBlockItems();
     }
 
     private void setup(final FMLCommonSetupEvent event) {
